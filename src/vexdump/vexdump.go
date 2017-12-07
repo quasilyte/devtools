@@ -1,3 +1,14 @@
+// vexdump prints VEX-like encodings information.
+//
+// Usage:
+//
+//	vexdump 6272fd098ae8
+//	vexdump 6272FD098AE8 '62 72 fd 09 8a c5'
+//	vexdump 6272fd098ae8 6272fd098ac5 c4e1315813 c5b15813 c5f877
+//
+// Vexdump recognizes VEX and EVEX prefix formats.
+// Also prints ModR/M byte for convenience (optional).
+//
 package main
 
 import (
