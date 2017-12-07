@@ -8,6 +8,10 @@ Notes:
 * spaces are allowed (removed before parsing)
 * encoding hex string length should not exceed 30.
 
+Please note that "fields" column will not match Intel Software Developer
+manual in some cases.  
+For one such example, `128` is used instead of `LIG`.
+
 ## Usage
 
 ```
