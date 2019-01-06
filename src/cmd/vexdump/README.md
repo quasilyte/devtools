@@ -1,4 +1,4 @@
-## vexdump
+# vexdump
 
 **vexdump** prints VEX-like encodings information.
 Recognizes VEX and EVEX prefix formats.
@@ -10,7 +10,14 @@ Notes:
 
 Please note that "fields" column will not match Intel Software Developer
 manual in some cases.  
+
 For one such example, `128` is used instead of `LIG`.
+
+## Install
+
+```bash
+go get -u -v github.com/Quasilyte/go-devtools/cmd/vexdump
+```
 
 ## Usage
 
