@@ -5,7 +5,7 @@
 ## Install
 
 ```bash
-go get -u -v github.com/Quasilyte/go-devtools/cmd/go-appcover
+go get -u -v github.com/Quasilyte/devtools/cmd/go-appcover
 ```
 
 ## References
