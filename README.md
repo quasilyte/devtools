@@ -1,8 +1,8 @@
 # tools
 
-Shared repository for small utilities.
+Shared repository for Go developer tools. 
 
 ### vexdump
 
-[vexdump](src/vexdump) prints VEX-like encodings information.
+[vexdump](src/cmd/vexdump) prints VEX-like encodings information.
 Recognizes VEX and EVEX prefix formats.
