@@ -1,10 +1,10 @@
 # tools
 
-Shared repository for Go developer tools. 
+Shared repository for Go developer tools.
 
-### appcover
+### go-appcover
 
-[appcover](src/cmd/appcover) simplifies the process of collecting main/application coverage report.
+[go-appcover](src/cmd/go-appcover) simplifies the process of collecting main/application coverage report.
 
 ### vexdump
 
