@@ -16,7 +16,7 @@ For one such example, `128` is used instead of `LIG`.
 ## Install
 
 ```bash
-go get -u -v github.com/Quasilyte/go-devtools/cmd/vexdump
+go get -u -v github.com/Quasilyte/devtools/cmd/vexdump
 ```
 
 ## Usage
