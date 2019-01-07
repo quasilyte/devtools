@@ -11,7 +11,8 @@ import (
 
 func main() {
 	if len(os.Args) < 2 {
-		log.Fatalf("missing sub-command argument")
+		log.Printf("missing sub-command argument")
+		return
 	}
 	subcmd := os.Args[1]
 	runBinary := true
@@ -21,14 +22,16 @@ func main() {
 	case "build":
 		runBinary = false
 	default:
-		log.Fatalf("unknown sub-command: %v", subcmd)
+		log.Printf("unknown sub-command: %v", subcmd)
+		return
 	}
 	// Remove sub-command from the os.Args.
 	os.Args = append(os.Args[:1], os.Args[2:]...)
 
 	f, err := os.Create("appcover_main_test.go")
 	if err != nil {
-		log.Fatalf("open appcover test file: %v", err)
+		log.Printf("open appcover test file: %v", err)
+		return
 	}
 	defer func() {
 		f.Close()
@@ -39,14 +42,16 @@ func main() {
 
 	coverageFilename := "_appcover.out"
 	if err := generateAppcoverTest(f, coverageFilename); err != nil {
-		log.Fatalf("generate appcover test file: %v", err)
+		log.Printf("generate appcover test file: %v", err)
+		return
 	}
 
 	// Build the test binary.
 	log.Println("building test binary...")
 	tmp := os.TempDir()
 	if tmp == "" || tmp == "/" {
-		log.Fatalf("suspicious temporary dir: %q", tmp)
+		log.Printf("suspicious temporary dir: %q", tmp)
+		return
 	}
 	binaryFilename := filepath.Join(tmp, "_appcover")
 	args := []string{
@@ -59,13 +64,15 @@ func main() {
 	args = append(args, ".")
 	out, err := exec.Command("go", args...).CombinedOutput()
 	if err != nil {
-		log.Fatalf("build test binary: %v: %s", err, out)
+		log.Printf("build test binary: %v: %s", err, out)
+		return
 	}
 
 	if runBinary {
 		log.Println("running test binary...")
 		if err := runApp(binaryFilename); err != nil {
-			log.Fatalf("run test binary: %v", err)
+			log.Printf("run test binary: %v", err)
+			return
 		}
 	}
 }
