@@ -94,10 +94,12 @@ merged into `_appcover.out`, so that you don't have to do it manually.
 ### Testing interactive CLI apps that require stdin
 
 Instead of using `run` command, use `build`.
+
 Run `/tmp/_appcover` binary on your own and you'll have an opportunity
 to use stdin to control the application while collecting the coverage info.
 
 ### Testing apps that can do os.Exit
 
 `go-appcover` creates a test binary that writes partial results every few seconds.
+
 If your application exits, you still get the results.
